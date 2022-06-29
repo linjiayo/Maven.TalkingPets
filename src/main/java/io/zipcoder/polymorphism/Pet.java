@@ -12,7 +12,7 @@ public class Pet {
     }
 
     public void speak() {
-        System.out.printf("I am %s%n", getName());
+        System.out.println("Hello");
     }
 
     public String getName() {
