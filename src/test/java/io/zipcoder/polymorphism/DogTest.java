@@ -1,15 +1,21 @@
 package io.zipcoder.polymorphism;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
 public class DogTest {
+    Dog dog;
+
+    @Before
+    public void init(){
+        dog = new Dog();
+    }
     @Test
     public void testGetName() {
-        Dog dog = new Dog("Rex");
 
-        String exp = "Rex";
+        String exp = "Pet";
         String actual = dog.getName();
 
         assertEquals(exp, actual);
@@ -18,8 +24,6 @@ public class DogTest {
 
     @Test
     public void testSetName() {
-        Dog dog = new Dog("Jeff");
-
         String exp = "John";
         dog.setName(exp);
 

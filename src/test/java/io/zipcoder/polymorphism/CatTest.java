@@ -6,12 +6,15 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class CatTest {
+    Cat cat;
+    @Before
+    public void init() {
+        cat = new Cat();
+    }
 
     @Test
     public void testGetName() {
-        Cat cat = new Cat("John");
-
-        String exp = "John";
+        String exp = "Pet";
         String actual = cat.getName();
 
         assertEquals(exp, actual);
@@ -19,8 +22,6 @@ public class CatTest {
 
     @Test
     public void testSetName() {
-        Cat cat = new Cat();
-
         String expName = "Unique name";
         cat.setName("Unique name");
 
