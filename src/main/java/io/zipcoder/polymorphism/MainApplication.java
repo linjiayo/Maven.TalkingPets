@@ -1,6 +1,7 @@
 package io.zipcoder.polymorphism;
 
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class MainApplication {
@@ -16,6 +17,7 @@ public class MainApplication {
             return;
         }
         int numPets = sc.nextInt();
+        sc.nextLine();
         if (numPets < 0) {
             return;
         }
@@ -24,9 +26,10 @@ public class MainApplication {
 
         int counter = 0;
         while (counter < numPets) {
-            System.out.printf("Is your pet number %d a Cat, a Rabbit, or a Dog?%n", counter);
-            String petType = sc.nextLine().toLowerCase();
-            System.out.printf("What is your pet number %d's name?%n", counter);
+            System.out.printf("Is your pet number %d a Cat, a Rabbit, or a Dog?%n", counter + 1);
+
+            String petType = sc.nextLine();
+            System.out.printf("What is your pet number %d's name?%n", counter + 1);
             String petName = sc.nextLine();
 
             if (!isValidPetType(petType)) {
@@ -34,7 +37,7 @@ public class MainApplication {
                 continue;
             }
 
-            switch (petType) {
+            switch (petType.toLowerCase()) {
                 case "cat":
                     pets.add(new Cat(petName));
                     break;
@@ -45,16 +48,17 @@ public class MainApplication {
                     pets.add(new Rabbit(petName));
                     break;
             }
-
-
-
+            counter++;
         }
-
+        for (Pet pet : pets) {
+            System.out.println(pet.getName());
+            pet.speak();
+        }
 
     }
 
     private static boolean isValidPetType(String typeString) {
-        switch (typeString) {
+        switch (typeString.toLowerCase()) {
             case "cat":
             case "dog":
             case "rabbit":

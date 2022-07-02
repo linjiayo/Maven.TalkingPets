@@ -11,6 +11,6 @@ public class Rabbit extends Pet{
 
     @Override
     public void speak() {
-        System.out.println("Squeak");
+        System.out.println("Squeak!");
     }
 }
